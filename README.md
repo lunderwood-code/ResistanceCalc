@@ -2,9 +2,9 @@
 This program helps calculate what 2 resistors to use when trying to make another value.
 
 The available resistor values are:
-1.0, 1.2, 1.5, 1.8, 2.2, 2.7, 3.3, 3.9, 4.7, 5.6, 6.8, 8.2
 
-x1, x10, x100, x1,000, x10,000, x100,000, x1,000,000
+      1.0, 1.2, 1.5, 1.8, 2.2, 2.7, 3.3, 3.9, 4.7, 5.6, 6.8, 8.2
+      x1, x10, x100, x1,000, x10,000, x100,000, x1,000,000
 
 How to use...
 1) Run the program

@@ -27,6 +27,9 @@ SOFTWARE.
 #include <stdbool.h>
 #include <string.h>
 
+#define FLOAT_STR_SIZE 13
+#define RESISTOR_STR_SIZE 5
+
 struct ResistorPair
 {
     float R1;
@@ -51,11 +54,11 @@ struct PairAnalysis
 
 struct ResistorPairAsString
 {
-    char R1[BUFSIZ];
-    char R2[BUFSIZ];
+    char R1[RESISTOR_STR_SIZE];
+    char R2[RESISTOR_STR_SIZE];
 
-    char SeriesValue[BUFSIZ];
-    char ParallelValue[BUFSIZ];
+    char SeriesValue[FLOAT_STR_SIZE];
+    char ParallelValue[FLOAT_STR_SIZE];
 };
 
 struct SingleAnalysis
@@ -71,7 +74,7 @@ struct SingleAnalysis
 
 struct SingleResistorAsString
 {
-    char R1[BUFSIZ];
+    char R1[RESISTOR_STR_SIZE];
 };
 
 
@@ -191,8 +194,8 @@ void NewResistorPairAsString(struct ResistorPairAsString *pairAsString, struct P
 {
     convertToStandardResFormat(analysis.Pair.R1, pairAsString->R1);
     convertToStandardResFormat(analysis.Pair.R2, pairAsString->R2);
-    sprintf(pairAsString->SeriesValue, "%f", analysis.Pair.SeriesValue);
-    sprintf(pairAsString->ParallelValue, "%f", analysis.Pair.ParallelValue);
+    sprintf(pairAsString->SeriesValue, "%.3f", analysis.Pair.SeriesValue);
+    sprintf(pairAsString->ParallelValue, "%.3f", analysis.Pair.ParallelValue);
 }
 
 

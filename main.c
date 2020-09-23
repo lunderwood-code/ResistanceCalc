@@ -189,20 +189,10 @@ void NewPairAnalysis(struct PairAnalysis *analysis, struct ResistorPair pair, fl
  */
 void NewResistorPairAsString(struct ResistorPairAsString *pairAsString, struct PairAnalysis analysis)
 {
-    char r1AsString[BUFSIZ];
-    char r2AsString[BUFSIZ];
-    char seriesAsString[BUFSIZ];
-    char parallelAsString[BUFSIZ];
-
-    convertToStandardResFormat(analysis.Pair.R1, r1AsString);
-    convertToStandardResFormat(analysis.Pair.R2, r2AsString);
-    sprintf(seriesAsString, "%f", analysis.Pair.SeriesValue);
-    sprintf(parallelAsString, "%f", analysis.Pair.ParallelValue);
-
-    strncpy(pairAsString->R1, r1AsString, BUFSIZ);
-    strncpy(pairAsString->R2, r2AsString, BUFSIZ);
-    strncpy(pairAsString->SeriesValue, seriesAsString, BUFSIZ);
-    strncpy(pairAsString->ParallelValue, parallelAsString, BUFSIZ);
+    convertToStandardResFormat(analysis.Pair.R1, pairAsString->R1);
+    convertToStandardResFormat(analysis.Pair.R2, pairAsString->R2);
+    sprintf(pairAsString->SeriesValue, "%f", analysis.Pair.SeriesValue);
+    sprintf(pairAsString->ParallelValue, "%f", analysis.Pair.ParallelValue);
 }
 
 
@@ -239,11 +229,7 @@ void NewSingleAnalysis(struct SingleAnalysis *analysis, float r1,  float desired
  */
 void NewSingleResistorAsString(struct SingleResistorAsString *singleAsString, struct SingleAnalysis analysis)
 {
-    char r1AsString[BUFSIZ];
-
-    convertToStandardResFormat(analysis.R1, r1AsString);
-
-    strncpy(singleAsString->R1, r1AsString, BUFSIZ);
+    convertToStandardResFormat(analysis.R1, singleAsString->R1);
 }
 
 /** \brief Control of how the PairAnalysis is displayed - Currently only reports matches

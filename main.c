@@ -99,7 +99,7 @@ static float getDesiredValue(void);
 
 
 // Constants
-const float ResistorsE24[] = {1.0f, 1.2f, 1.5f, 1.8f, 2.2f, 2.7f, 3.3f, 3.9f, 4.7f, 5.6f, 6.8f, 8.2f};
+const float ResistorsE12[] = {1.0f, 1.2f, 1.5f, 1.8f, 2.2f, 2.7f, 3.3f, 3.9f, 4.7f, 5.6f, 6.8f, 8.2f};
 const float ValueMultipliers[] = { 1.0f, 10.0f, 100.0f, 1000.0f, 10000.0f, 100000.0f, 1000000.0f};
 
 
@@ -112,7 +112,7 @@ const float ValueMultipliers[] = { 1.0f, 10.0f, 100.0f, 1000.0f, 10000.0f, 10000
 int main(void)
 {
     unsigned int iR1, iR2;
-    size_t sizeResistorsE24 = sizeof(ResistorsE24)/sizeof(ResistorsE24[0]);
+    size_t sizeResistorsE12 = sizeof(ResistorsE12)/sizeof(ResistorsE12[0]);
 
     float desiredValue;
 
@@ -120,15 +120,15 @@ int main(void)
 
     desiredValue = getDesiredValue();
 
-    puts("\n\nResults within 2% of value...");
+    puts("\n\nResults within 2% of value using E12 resistors...");
 
-    for(iR1=0; iR1 < sizeResistorsE24; iR1++)
+    for(iR1=0; iR1 < sizeResistorsE12; iR1++)
     {
-        examineSingleValue(ResistorsE24[iR1], desiredValue);
+        examineSingleValue(ResistorsE12[iR1], desiredValue);
 
-        for(iR2=iR1; iR2 < sizeResistorsE24; iR2++)
+        for(iR2=iR1; iR2 < sizeResistorsE12; iR2++)
         {
-            examinePairValues(ResistorsE24[iR1], ResistorsE24[iR2], desiredValue);
+            examinePairValues(ResistorsE12[iR1], ResistorsE12[iR2], desiredValue);
         }
     }
 
